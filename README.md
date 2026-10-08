@@ -8,4 +8,4 @@
 
 تنها تغییرات نسبت به آخرین نسخه اندرویدی (تا به الان)، نبود قسمت های محاسبه معکوس دوز و محاسبات داروهای ترکیبی هستش. تمامی قسمت ها تست شده و به درستی کار میکنند.
 
-برای استفاده کافیه وارد آدرس [fifthidea.github.io/medmate](fifthidea.github.io/medmate) بشین.
+برای استفاده کافیه وارد آدرس [fifthidea.github.io/medmate](https://fifthidea.github.io/medmate) بشین.
