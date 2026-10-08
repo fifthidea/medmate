@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاسبات دارویی، پزشکی و پرستاری | ابزار آنلاین MedMate</title>
+    <meta name="description" content="ابزار آنلاین و رایگان برای انجام دقیق محاسبات دارویی پزشکی و پرستاری. محاسبه دوز دارو، قطرات سرم، GIR،تبدیل mEq.">
+    <meta name="keywords" content="محاسبات دارویی, محاسبه قطرات میکروست, محاسبات پزشکی, نرم افزار پرستاری,تغییر غلظت, ماشین حساب پزشکی, MedMate, محاسبه قطرات سرم, GIR, فرمول دارویی">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZ67EPKD6Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MZ67EPKD6Q');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="manifest" href="/manifest2.json">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/image/Favicon/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+    <div class="nav-bar-container">
+        <div class="logotext">DRUGS CALCULATOR </div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i><span></span></div>
+        <div class="print-sheet-manager-btn" id="openPrintSheetBtn">
+            <i class="fas fa-print"></i>
+            <span class="print-queue-badge" style="display: none;">0</span>
+        </div>
+        <div class="navbar-app-icon">
+            <img src="/icon192.webp" alt="لوگوی اپلیکیشن محاسبات دارویی MedMate">
+        </div>
+    </div>
+    <div class="menuwrapper" id="menu">
+        <button class="close-menu-btn"><i class="fas fa-times"></i></button>
+        <div class="menucontent">
+            <div class="menu-section">
+                <h4 class="persian-text">آموزش استفاده از برنامه</h4>
+                <div class="menu-links-group"> <a href="https://www.aparat.com/v/haivj50" target="_blank" class="menu-link persian-text"><i class="fas fa-video" style="color: #c4302b;"></i> معرفی برنامه</a>
+                    <a href="https://www.aparat.com/v/smcg724" id="label-tutorial-link" class="menu-link persian-text"><i class="fas fa-print" style="color: #007BFF;"></i> آموزش چاپ لیبل</a>
+                </div>
+            </div>
+            <div class="menu-section">
+                <h4 class="persian-text">تنظیمات و راهنما</h4>
+                <div class="menu-links-group"> <a href="#" id="pwaInstallLink" class="menu-link persian-text"><i class="fas fa-download" style="color: #689F38;"></i> نصب برنامه</a>
+                    <a href="#" id="show-install-guide-btn" class="menu-link persian-text"><i class="fas fa-info-circle" style="color: #17a2b8;"></i> راهنمای نصب</a>
+                </div>
+            </div>
+            <div class="menu-section">
+                <h4 class="persian-text">ماشین حساب های معتبر پزشکی</h4>
+                <div class="tools-grid">
+                    <a href="https://reference.medscape.com/guide/medical-calculators" target="_blank" class="tool-item"><img src="/image/tools/medscape.webp" class="tool-icon" alt="Medscape"><span class="tool-name">Medscape</span></a>
+                    <a href="https://ebmcalc.com/" target="_blank" class="tool-item"><img src="/image/tools/EBMcalc.webp" class="tool-icon" alt="EBMcalc"><span class="tool-name">ebmcalc</span></a>
+                    <a href="https://globalrph.com/medcalcs/" target="_blank" class="tool-item"><img src="/image/tools/GlobalRPh.webp" class="tool-icon" alt="GlobalRPh"><span class="tool-name">GRPh</span></a>
+                    <a href="https://clincalc.com/" target="_blank" class="tool-item"><img src="/image/tools/clincalc.webp" class="tool-icon" alt="ClinCalc"><span class="tool-name">Clincal</span></a>
+                    <a href="https://healthify.nz/tools/m/medication-dose-calculators" target="_blank" class="tool-item"><img src="image/tools/Healthify.webp" class="tool-icon" alt="Healthify"><span class="tool-name">healthify</span></a>
+                    <a href="https://www.mdcalc.com/" target="_blank" class="tool-item"><img src="/image/tools/mdcalc.webp" class="tool-icon" alt="MDCalc"><span class="tool-name">mdcalc</span></a>
+                    <a href="https://www.medcentral.com/calculators/all" target="_blank" class="tool-item"><img src="/image/tools/medcenteral.webp" class="tool-icon" alt="MedCentral"><span class="tool-name">MedCentral</span></a>
+                    <a href="https://www.pediatriconcall.com/calculators/category" target="_blank" class="tool-item"><img src="/image/tools/pediatric.webp" class="tool-icon" alt="Pediatric On-Call"><span class="tool-name">Pediatric</span></a>
+                    <a href="https://www.uptodate.com/contents/table-of-contents/calculators" target="_blank" class="tool-item"><img src="/image/tools/uptodate.webp" class="tool-icon" alt="UpToDate"><span class="tool-name">UpToDate</span></a>
+                </div>
+            </div>
+            <div class="menu-section contact-section">
+                <h4 class="persian-text">اطلاعات تماس</h4>
+                <div class="contact-person">
+                    <h4>DR. AMIR SALARI</h4>
+                    <div class="contact-links">
+                        <a href="https://instagram.com/amirsalari2136" target="_blank" class="menu-link"><i class="fab fa-instagram" style="color: #E4405F;"></i> Instagram</a>
+                        <a href="https://wa.me/989124065510" target="_blank" class="menu-link"><i class="fab fa-whatsapp" style="color: #25D366;"></i> WhatsApp</a>
+                    </div>
+                </div>
+                <div class="contact-person">
+                    <h4>TAVAKOL PIRI</h4>
+                    <div class="contact-links">
+                        <a href="https://instagram.com/MedMate_ir" target="_blank" class="menu-link"><i class="fab fa-instagram" style="color: #E4405F;"></i> Instagram</a>
+                        <a href="https://wa.me/989905415680" target="_blank" class="menu-link"><i class="fab fa-whatsapp" style="color: #25D366;"></i> WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+             <h1 class="visually-hidden">ماشین حساب آنلاین محاسبات دارویی، پزشکی و پرستاری</h1>
+             <p class="visually-hidden">MedMate یک ابزار جامع و دقیق برای کادر درمان است که به شما در انجام سریع <strong>محاسبات دارویی</strong>، از جمله دوز داروهای تزریقی، محاسبه قطرات سرم، تنظیم غلظت محلول‌ها و محاسبه GIR کمک می‌کند. با این ابزار، خطاهای پزشکی را کاهش داده و ایمنی بیمار را افزایش دهید.</p>
+        </header>
+        <div class="boxes-container">
+            <div class="box">
+                <div class="box-header">
+                    <img src="/image/pumpp.webp" class="custom-icon" alt="آیکون پمپ انفوزیون برای بخش محاسبات دارویی">
+                    <h2 class="box-title">محاسبات دارویی</h2>
+                </div>
+                <div class="box-content">
+                    <label for="drugDose">دوز دارو:</label>
+                    <div style="display: flex; gap: 8px;"><input type="number" id="drugDose" placeholder="دوز دارو"><select id="drugDoseUnit"><option value="mg">mg</option><option value="mcg">mcg</option><option value="U">U</option></select></div>
+                    <label for="syringeVolume">حجم سرنگ یا میکروست (میلی‌لیتر):</label>
+                    <input type="number" id="syringeVolume" placeholder=" حجم سرنگ / میکروست">
+                    <label for="prescribedDose">دوز تجویزی:</label>
+                    <div style="display: flex; gap: 8px;"><input type="number" id="prescribedDose" placeholder="دوز تجویزی"><select id="prescribedDoseUnit">
+                        <option value="mg/h">mg/h</option>
+                        <option value="mg/min">mg/min</option>
+                        <option value="mg/kg/h">mg/kg/h</option>
+                        <option value="mg/kg/min">mg/kg/min</option>
+                        <option value="mcg/kg/min">mcg/kg/min</option>
+                        <option value="mcg/kg/h">mcg/kg/h</option>
+                        <option value="mcg/min">mcg/min</option>
+                        <option value="mcg/h">mcg/h</option>
+                        <option value="U/h">U/h</option>
+                        <option value="U/kg/h">U/kg/h</option>
+                        <option value="U/kg/min">U/kg/min</option>
+                    </select></div>
+                    <div id="weightInput" style="display: none;"><label for="weight">وزن بیمار (کیلوگرم):</label><input type="number" id="weight" placeholder="وزن بیمار"></div>
+                    <div class="radio-group"><div style="font-weight: bold;">روش تزریق:</div><label><input type="radio" name="infusionMethod" value="pump" checked> پمپ</label><label><input type="radio" name="infusionMethod" value="microset"> میکروست</label></div>
+                    <button id="calculateDrugBtn">محاسبه دارو</button>
+                    <div class="result" id="drugResult"></div>
+                    <p style="font-weight: bold; margin-top: 20px; text-align: center;">
+                        در صورت نیاز به چاپ لیبل دارویی، بخش‌های زیر را تکمیل کرده و دکمه "افزودن به لیست چاپ" را انتخاب کنید.
+                    </p>
+                    <label for="drugName">نام دارو:</label>
+                    <input type="text" id="drugName" placeholder="مثلاً: دوپامین">
+                    <label for="nurseName">نام پرستار:</label>
+                    <input type="text" id="nurseName" placeholder="نام خود را وارد کنید">
+                    <label for="patientName">نام بیمار:</label>
+                    <input type="text" id="patientName" placeholder="نام بیمار را وارد کنید">
+                    <button id="saveLabelBtn" class="save-btn" style="display: none;">
+                        <i class="fas fa-plus"></i> افزودن به لیست چاپ
+                    </button>
+                    <button class="close-btn">بستن</button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header"><img src="/image/perc.webp" class="custom-icon" alt="آیکون ویال دارو برای محاسبات داروهای درصدی"><h2 class="box-title">محاسبات داروهای درصدی</h2></div>
+                <div class="box-content">
+                    <label for="drugPercentage">درصد دارو:</label><input type="number" id="drugPercentage" placeholder="مثال: 1 برای ۱٪">
+                    <label for="requiredDose">دوز مورد نیاز:</label><div style="display: flex; gap: 8px;"><input type="number" id="requiredDose" placeholder="دوز مورد نیاز"><select id="requiredDoseUnit"><option value="mg">میلی‌گرم</option><option value="g">گرم</option></select></div>
+                    <button id="calculatePercentageDrugBtn">محاسبه میلی‌لیتر مورد نیاز</button><div class="result" id="percentageDrugResult"></div><button class="close-btn">بستن</button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header"><img src="/image/battll.webp" class="custom-icon" alt="آیکون سرم برای محاسبه قطرات سرم"><h2 class="box-title">محاسبات میزان قطرات سرم</h2></div>
+                <div class="box-content">
+                    <label for="fluidVolume">حجم سرم (میلی‌لیتر):</label><input type="number" id="fluidVolume" placeholder="حجم سرم">
+                    <label for="infusionTimeValue">زمان تزریق:</label><div class="time-input-container"><input type="number" id="infusionTimeValue" placeholder="مقدار زمان" min="0.1" step="0.1"><select id="infusionTimeUnit"><option value="hours">ساعت</option><option value="minutes">دقیقه</option></select></div>
+                    <label for="dripSet">نوع ست سرم:</label><select id="dripSet"><option value="10">۱۰ قطره/میلی‌لیتر</option><option value="15">۱۵ قطره/میلی‌لیتر</option><option value="20" selected>۲۰ قطره/میلی‌لیتر</option></select>
+                    <button id="calculateFluidBtn">محاسبه</button><div class="result" id="fluidResult"></div><button class="close-btn">بستن</button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header"><img src="/image/micro.webp" class="custom-icon" alt="آیکون میکروست برای محاسبه قطرات میکروست"><h2 class="box-title">محاسبات میزان قطرات میکروست</h2></div>
+                <div class="box-content">
+                    <label for="microsetVolume">حجم میکروست (میلی‌لیتر):</label><input type="number" id="microsetVolume" placeholder="حجم میکروست">
+                    <label for="microsetInfusionTimeValue">زمان تزریق:</label><div class="time-input-container"><input type="number" id="microsetInfusionTimeValue" placeholder="مقدار زمان" min="0.1" step="0.1"><select id="microsetInfusionTimeUnit"><option value="hours">ساعت</option><option value="minutes">دقیقه</option></select></div>
+                    <button id="calculateMicrosetBtn">محاسبه</button><div class="result" id="microsetResult"></div><button class="close-btn">بستن</button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header"><img src="/image/dext.webp" class="custom-icon" alt="آیکون تغییر غلظت محلول های پزشکی"><h2 class="box-title">تغییر غلظت محلول ها</h2></div>
+                <div class="box-content">
+                    <label for="currentConc">غلظت محلول رقیق تر (درصد):</label><input type="number" id="currentConc" placeholder="مثال: 5">
+                    <label for="desiredConc">غلظت محلول مورد نظر (درصد):</label><input type="number" id="desiredConc" placeholder="مثال: 10">
+                    <label for="stockConc">غلظت محلول غلیظ تر (درصد):</label><input type="number" id="stockConc" placeholder="مثال: 50">
+                    <label for="totalVolume">حجم محلول رقیق تر موجود (میلی‌لیتر):</label><input type="number" id="totalVolume" placeholder="مثال: 1000">
+                    <label for="infusionVolume">حجم مورد نیاز انفوزیون بیمار (میلی‌لیتر):</label><input type="number" id="infusionVolume" placeholder="مثال: 50">
+                    <button id="calculateReplacementBtn">محاسبه حجم جایگزینی</button><div class="result" id="conversionResult"></div><button class="close-btn">بستن</button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header"><img src="/image/arrow.webp" class="custom-icon" alt="آیکون تبدیل واحد mEq به mg و ml"><h2 class="box-title">تبدیل mEq به mg و ml</h2></div>
+                <div class="box-content">
+                    <label for="compound">ترکیب دارویی:</label><select id="compound"><option value="">-- انتخاب کنید --</option><option value="74.5,1,Potassium Chloride">کلرید پتاسیم (KCl)</option><option value="58.5,1,Sodium Chloride">کلرید سدیم (NaCl)</option><option value="84,1,Sodium Bicarbonate">بیکربنات سدیم</option><option value="147,2,Calcium Chloride">کلرید کلسیم (CaCl2)</option><option value="120.4,2,Magnesium Sulfate">سولفات منیزیم (MgSO4)</option><option value="136,1,Potassium Phosphate">فسفات پتاسیم</option><option value="430,2,Calcium Gluconate">گلوکونات کلسیم</option></select>
+                    <label for="concentration">غلظت محلول:</label><select id="concentration"><option value="">ابتدا ترکیب را انتخاب کنید</option></select>
+                    <label for="mEq">مقدار mEq:</label><input type="number" id="mEq" placeholder="مقدار بر حسب mEq">
+                    <button id="calculateMgFromMEqBtn">محاسبه</button><div class="result" id="mEqToMgResult"></div><button class="close-btn">بستن</button>
+                </div>
+            </div>
+
+            
+<!-- باکس ماشین حساب اورژانس کودکان -->
+<div class="box pediatric-box">
+    <div class="box-header">
+        <img src="/image/PICuu.webp" class="custom-icon" alt="ماشین حساب اورژانس کودکان">
+        <h2 class="box-title">محاسبات دارویی اورژانس و مراقبت های ویژه در کودکان</h2>
+    </div>
+    <div class="box-content">
+        <!-- بخش اطلاعات بیمار -->
+        <div class="patient-info-section">
+            <div class="section-header">
+                <i class="fas fa-user-injured"></i>
+                <h3>اطلاعات بیمار</h3>
+            </div>
+            <div class="input-grid">
+                <div class="input-field">
+                    <label for="pediatric-weight">
+                        <i class="fas fa-weight"></i>
+                        وزن (کیلوگرم)
+                    </label>
+                    <input type="number" id="pediatric-weight" placeholder="وزن را وارد کنید" step="0.1" min="0.1">
+                </div>
+                <div class="input-field">
+                    <label for="pediatric-age">
+                        <i class="fas fa-birthday-cake"></i>
+                        سن (سال)
+                    </label>
+                    <input type="number" id="pediatric-age" placeholder="سن را وارد کنید" step="0.5" min="0.1" max="18">
+                </div>
+            </div>
+            
+            <!-- پیش‌بینی وزن -->
+            <div class="prediction-banner" id="weight-prediction">
+                <div class="prediction-content">
+                    <i class="fas fa-lightbulb"></i>
+                    <div class="prediction-text">
+                        <span class="prediction-label">وزن تخمینی:</span>
+                        <span class="prediction-value" id="predicted-weight">- کیلوگرم</span>
+                    </div>
+                    <button id="use-predicted-weight" class="btn-primary">
+                        <i class="fas fa-check"></i>
+                        استفاده از این وزن
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- تب‌های ماشین حساب -->
+        <div class="calculator-tabs">
+            <nav class="tab-nav">
+                <div class="tab-scroll">
+                    <!-- گروه اول: اورژانس -->
+                    <div class="tab-group">
+                        <div class="group-label">اورژانس</div>
+                        <button class="tab-btn active" data-tab="airway">
+                            <i class="fas fa-procedures" style="color: #e74c3c;"></i>
+                            <span>AIRWAY & DEFIB</span>
+                        </button>
+                        <button class="tab-btn" data-tab="emergency">
+                            <i class="fas fa-plus-circle" style="color: #c0392b;"></i>
+                            <span>EMERGENCIES</span>
+                        </button>
+                    </div>
+
+                    <!-- گروه دوم: بیهوشی -->
+                    <div class="tab-group">
+                        <div class="group-label">بیهوشی</div>
+                        <button class="tab-btn" data-tab="intubation">
+                            <i class="fas fa-lungs" style="color: #3498db;"></i>
+                            <span>INTUBATION</span>
+                        </button>
+                        <button class="tab-btn" data-tab="sedation">
+                            <i class="fas fa-syringe" style="color: #9b59b6;"></i>
+                            <span>SEDATION & PARALYSIS</span>
+                        </button>
+                    </div>
+
+                    <!-- گروه سوم: قلبی -->
+                    <div class="tab-group">
+                        <div class="group-label">قلبی</div>
+                        <button class="tab-btn" data-tab="inotropes">
+                            <i class="fas fa-heartbeat" style="color: #e74c3c;"></i>
+                            <span>INOTROPES</span>
+                        </button>
+                        <button class="tab-btn" data-tab="cardiac">
+                            <i class="fas fa-heart" style="color: #c0392b;"></i>
+                            <span>ANTI-HYPERTENSIVES & ARRHYTHMICS</span>
+                        </button>
+                    </div>
+
+                    <!-- گروه چهارم: OTHERS -->
+                    <div class="tab-group">
+                        <div class="group-label">OTHERS</div>
+                        <button class="tab-btn" data-tab="fluids">
+                            <i class="fas fa-prescription-bottle" style="color: #27ae60;"></i>
+                            <span>OTHERS</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- محتوای تب‌ها -->
+            <div class="tab-contents">
+                <!-- تب مجاری هوایی -->
+                <div class="tab-content active" id="tab-airway">
+                    <div class="content-grid">
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-wind"></i>
+                                <h4>لوله تراشه</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="calc-result">
+                                    <span class="result-label">سایز</span>
+                                    <span class="result-value" id="ett-size">-</span>
+                                </div>
+                                <div class="calc-result">
+                                    <span class="result-label">عمق (دهانی)</span>
+                                    <span class="result-value" id="ett-depth">- سانتی‌متر</span>
+                                </div>
+                                <div class="calc-formula">(سن/4) + 4</div>
+                            </div>
+                        </div>
+
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-toolbox"></i>
+                                <h4>تجهیزات</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="calc-result">
+                                    <span class="result-label">تیغه لارنگوسکوپ</span>
+                                    <span class="result-value" id="laryngoscopy-blade">-</span>
+                                </div>
+                                <div class="calc-result">
+                                    <span class="result-label">سایز LMA</span>
+                                    <span class="result-value" id="lma-size">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-bolt"></i>
+                                <h4>مقدار شوک</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="calc-result">
+                                    <span class="result-label"></span>
+                                    <span class="result-value" id="defibrillation-dose">- ژول</span>
+                                </div>
+                                <div class="calc-result">
+                                    <span class="result-label"></span>
+                                    <span class="result-value" id="cardioversion-dose">- ژول</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تب داروهای اورژانس -->
+                <div class="tab-content" id="tab-emergency">
+                    <div class="content-grid">
+                        <!-- آدرنالین -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-heartbeat"></i>
+                                <h4>آدرنالین (اپینفرین)</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">آدرنالین 1:10,000 وریدی/داخل استخوانی (0.01mg/kg)</div>
+                                    <div class="drug-info">برای ایست قلبی (فرمولاسیون 1:10,000, 0.1mg/ml)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-adrenaline-iv-cardiac">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">0.1mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">1mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">آدرنالین 1:1,000 لوله تراشه (0.1mg/kg)</div>
+                                    <div class="drug-info">برای ایست قلبی (فرمولاسیون 1:1,000, 1mg/ml)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-adrenaline-et">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">1mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">2.5mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">آدرنالین 1:1,000 عضلانی (0.01mg/kg)</div>
+                                    <div class="drug-info">برای آنافیلاکسی (فرمولاسیون 1:1,000, 1mg/ml)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-adrenaline-im">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">1mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">کودک: 0.3mg / نوجوان: 0.5mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- آتروپین و آمیودارون -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-capsules"></i>
+                                <h4>داروهای قلبی</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">آتروپین (0.02mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-atropine-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">0.6mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداقل دوز:</span>
+                                            <span class="value-max">0.1mg</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">کودک: 0.5mg / نوجوان: 1mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">آمیودارون (5mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-amiodarone-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">50mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">300mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">ATP (0.167mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-atp-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">10mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">20mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- متابولیک -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-flask"></i>
+                                <h4>داروهای متابولیک</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">گلوکونات کلسیم 10% (0.5ml/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-calcium-gluconate-dose">- ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">20ml</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">دکستروز D10 (2.5ml/kg)</div>
+                                    <div class="drug-info">شیرخواران و کودکان کوچک</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-dextrose-d10-dose">- ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">250ml</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">دکستروز D50 (0.5ml/kg)</div>
+                                    <div class="drug-info">کودکان بزرگتر و نوجوانان</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-dextrose-d50-dose">- ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">50ml</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">بیکربنات سدیم 8.4% (1ml/kg)</div>
+                                    <div class="drug-info">تزریق آهسته وریدی در 5-10 دقیقه</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-bicarb-dose">- ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">100ml</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- پادزهرها و سایر داروها -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>آنتی دوت و سایر داروها</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">فلومازنیل (0.01mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-flumazenil-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">0.1mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">0.2mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">لیدوکائین 2% (1mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-lignocaine-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">20mg/ml</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">لورازپام (0.1mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-lorazepam-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">2mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">4mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">میدازولام (0.1mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-midazolam-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">5mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">5mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">سولفات منیزیم 50% (40mg/kg)</div>
+                                    <div class="drug-info">رقیق کردن 3 برابر با D5 (حجم تا 2.9ml با D5)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-mgso4-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">2500mg/5ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">2000mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">نالوکسان (0.1mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-naloxone-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">0.4mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">2mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="drug-field">
+                                    <div class="drug-name">پروکائین آمید (15mg/kg)</div>
+                                    <div class="drug-info">رقیق کردن 5 برابر با D5 (حجم تا 9ml با D5)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="emergency-procainamide-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">100mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">1000mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تب لوله گذاری -->
+                <div class="tab-content" id="tab-intubation">
+                    <div class="content-grid">
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-bed"></i>
+                                <h4>داروهای لوله گذاری (INTUBATION)</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- کتامین -->
+                                <div class="drug-field">
+                                    <div class="drug-name">کتامین (1mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-ketamine-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">10mg/ml</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- میدازولام -->
+                                <div class="drug-field">
+                                    <div class="drug-name">میدازولام (0.1mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-midazolam-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">5mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">5mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- فنتانیل -->
+                                <div class="drug-field">
+                                    <div class="drug-name">فنتانیل (1mcg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-fentanyl-dose">- mcg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">50mcg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">100mcg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- مرفین -->
+                                <div class="drug-field">
+                                    <div class="drug-name">مرفین (0.1mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-morphine-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">15mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">10mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- اتومیدیت -->
+                                <div class="drug-field">
+                                    <div class="drug-name">اتومیدیت (0.3mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-etomidate-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">2mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">20mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- پروپوفول -->
+                                <div class="drug-field">
+                                    <div class="drug-name">پروپوفول (1mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-propofol-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">10mg/ml</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- روکورونیوم -->
+                                <div class="drug-field">
+                                    <div class="drug-name">روکورونیوم (1mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-rocuronium-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">10mg/ml</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- سوکسامتونیوم -->
+                                <div class="drug-field">
+                                    <div class="drug-name">سوکسامتونیوم (1.5mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-suxamethonium-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">50mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">100mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- نئوستیگمین -->
+                                <div class="drug-field">
+                                    <div class="drug-name">نئوستیگمین (0.05mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-neostigmine-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">2.5mg/ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر دوز:</span>
+                                            <span class="value-max">2.5mg</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- سوگامادکس -->
+                                <div class="drug-field">
+                                    <div class="drug-name">سوگامادکس (16mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-sugammadex-dose">- mg = - ml</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">غلظت آمپول:</span>
+                                            <span class="value-prep">100mg/ml</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- آتروپین -->
+                                <div class="drug-field">
+                                    <div class="drug-name">آتروپین (0.02mg/kg)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">مقدار تزریق:</span>
+                                            <span class="value-dose" id="intubation-atropine-dose">- mg = - ml</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               <!-- تب اینوتروپ‌ها -->
+                <div class="tab-content" id="tab-inotropes">
+                    <div class="content-grid">
+                        <!-- دوپامین -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-heart-circle-plus"></i>
+                                <h4>دوپامین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">150mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">5-20 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="inotropes-dopamine-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- دوبوتامین -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-heartbeat"></i>
+                                <h4>دوبوتامین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">125mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">5-20 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="inotropes-dobutamine-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- آدرنالین -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-bolt"></i>
+                                <h4>آدرنالین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">2.5mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.01-0.4 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="inotropes-adrenaline-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نورآدرنالین -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <h4>نورآدرنالین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">2.5mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.01-0.4 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="inotropes-noradrenaline-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- میلرینون -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-vial"></i>
+                                <h4>میلرینون</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">20mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.3-1 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="inotropes-milrinone-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- وازوپرسین -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-prescription-bottle"></i>
+                                <h4>وازوپرسین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">10 units make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.01-0.12 units/kg/h</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="inotropes-vasopressin-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تب آرام‌بخش‌ها -->
+                <div class="tab-content" id="tab-sedation">
+                    <div class="content-grid">
+                        <!-- فنتانیل -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-moon"></i>
+                                <h4>فنتانیل</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">400microgram make up to 50ml with D5</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">1-4 mcg/kg/h</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="sedation-fentanyl-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- مرفین -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-bed"></i>
+                                <h4>مرفین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">10mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">10-40 mcg/kg/h</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="sedation-morphine-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- میدازولام -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-syringe"></i>
+                                <h4>میدازولام</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">50mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.5-20 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="sedation-midazolam-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- کتامین -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-capsules"></i>
+                                <h4>کتامین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">50mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">1-10 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="sedation-ketamine-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- دکسمدتومیدین -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-prescription-bottle"></i>
+                                <h4>دکسمدتومیدین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">100microgram make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.2-1 mcg/kg/h</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="sedation-dexmedetomidine-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- روکورونیوم -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-ban"></i>
+                                <h4>روکورونیوم</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">80mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">5-15 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="sedation-rocuronium-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- تیوپنتون -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-vial"></i>
+                                <h4>تیوپنتون</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">500mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">1-5 mg/kg/h</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="sedation-thiopentone-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تب قلبی -->
+                <div class="tab-content" id="tab-cardiac">
+                    <div class="content-grid">
+                        <!-- لابتالول -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <h4>لابتالول</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">Undiluted (250mg/50ml)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.25-3 mg/kg/h</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="cardiac-labetalol-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- اسمولول -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-heart-pulse"></i>
+                                <h4>اسمولول</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">Undiluted (500mg/50ml)</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">25-300 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="cardiac-esmolol-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نیتروپروساید -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-vial"></i>
+                                <h4>نیتروپروساید</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">50mg make up to 50ml with D5</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.5-10 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="cardiac-nitroprusside-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- آمیودارون -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-capsules"></i>
+                                <h4>آمیودارون</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">50mg make up to 50ml with D5</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">5-15 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="cardiac-amiodarone-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- لیدوکائین -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-syringe"></i>
+                                <h4>لیدوکائین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">400mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">15-50 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="cardiac-lignocaine-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- پروکائین آمید -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-pills"></i>
+                                <h4>پروکائین آمید</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">400mg make up to 50ml with D5</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">20-80 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="cardiac-procainamide-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ایزوپرنالین -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-bolt"></i>
+                                <h4>ایزوپرنالین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">0.5mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.05-1 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="cardiac-isoprenaline-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تب مایعات -->
+                <div class="tab-content" id="tab-fluids">
+                    <div class="content-grid">
+                        <!-- ونتولین -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-wind"></i>
+                                <h4>ونتولین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">25mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">1-5 mcg/kg/min</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">حداکثر مجاز:</span>
+                                            <span class="value-max" style="color: #e74c3c;">20 mcg/min = 2.4 ml/hr</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="fluids-ventolin-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- آمینوفیلین -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-lungs"></i>
+                                <h4>آمینوفیلین</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">250mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.5-1 mg/kg/h</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="fluids-aminophylline-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- لازیکس -->
+                        <div class="calc-card">
+                            <div class="card-header">
+                                <i class="fas fa-tint"></i>
+                                <h4>لازیکس</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">120mg make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.25-1 mg/kg/h</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="fluids-lasix-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- آکتراپید -->
+                        <div class="calc-card critical">
+                            <div class="card-header">
+                                <i class="fas fa-prescription-bottle"></i>
+                                <h4>آکتراپید</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="drug-field">
+                                    <div class="drug-name">10units make up to 50ml with NS</div>
+                                    <div class="drug-values">
+                                        <span class="value-item">
+                                            <span class="value-label">محدوده دوز:</span>
+                                            <span class="value-max">0.05-0.1 units/kg/h</span>
+                                        </span>
+                                        <span class="value-item">
+                                            <span class="value-label">سرعت تزریق:</span>
+                                            <span class="value-dose" id="fluids-actrapid-rate">- ml/hr</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="close-btn">بستن</button>
+    </div>
+</div>
+            <div class="box" data-link="https://www.mdcalc.com/"><div class="box-header"><img src="/image/MDCalc.svg" class="custom-icon" alt="لینک به سایت محاسبات جامع پزشکی MDCalc"><h2 class="box-title">محاسبات جامع پزشکی</h2></div></div>
+            
+            <!-- باکس GIR پیشرفته -->
+            <div class="box">
+                <div class="box-header">
+                    <img src="/image/GIRr.webp" class="custom-icon" alt="آیکون محاسبه نرخ تزریق گلوکز (GIR)">
+                    <h2 class="box-title">محاسبه نرخ تزریق گلوکز (GIR)</h2>
+                </div>
+                <div class="box-content">
+                    <!-- بخش اطلاعات بیمار -->
+                    <div class="gir-section">
+                        <h4 class="section-title">📋 اطلاعات بیمار</h4>
+                        <div class="input-group">
+                            <label for="gir-patient-group">گروه بیمار:</label>
+                            <select id="gir-patient-group">
+                                <option value="preterm-very-low">نوزاد نارس بسیار کم وزن (&lt;1000g)</option>
+                                <option value="preterm-low">نوزاد نارس کم وزن (1000-1500g)</option>
+                                <option value="preterm">نوزاد نارس (1500-2500g)</option>
+                                <option value="term">نوزاد ترم (Term Neonate)</option>
+                                <option value="infant">شیرخوار (1-12 ماه)</option>
+                                <option value="child" selected>کودک (1-12 سال)</option>
+                                <option value="adolescent">نوجوان/بالغ (&gt;12 سال)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="gir-weight">وزن بیمار (kg):</label>
+                            <input type="number" id="gir-weight" placeholder="مثال: ۳.۵" min="0.1" step="0.01">
+                        </div>
+                        <div class="input-group">
+                            <label for="gir-gestational-age">سن حاملگی (هفته - اختیاری):</label>
+                            <input type="number" id="gir-gestational-age" placeholder="مثال: ۳۲" min="22" max="42">
+                        </div>
+                    </div>
+
+                    <!-- بخش تنظیمات گلوکز -->
+                    <div class="gir-section">
+                        <h4 class="section-title">🎯 تنظیمات گلوکز</h4>
+                        <div class="input-group">
+                            <label for="gir-glucoseRate">GIR هدف (mg/kg/min):</label>
+                            <input type="number" id="gir-glucoseRate" placeholder="مثال: ۴-۸ برای نوزادان" min="1" max="20" step="0.1">
+                            <div class="quick-gir-links">
+                                <div class="quick-gir" data-gir="4">شروع</div>
+                                <div class="quick-gir" data-gir="6">متوسط</div>
+                                <div class="quick-gir" data-gir="8">بالا</div>
+                                <div class="quick-gir" data-gir="12">ماکزیمم</div>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="gir-concentration">غلظت دکستروز (%):</label>
+                            <input type="number" id="gir-concentration" placeholder="مثال: ۱۰" min="1" max="70" step="0.1">
+                            <div class="quick-links">
+                                <div class="quick-link low-risk" data-concentration="3">D3</div>
+                                <div class="quick-link low-risk active" data-concentration="5">D5</div>
+                                <div class="quick-link low-risk" data-concentration="7.5">D7.5</div>
+                                <div class="quick-link low-risk" data-concentration="10">D10</div>
+                                <div class="quick-link moderate-risk" data-concentration="12.5">D12.5</div>
+                                <div class="quick-link moderate-risk" data-concentration="15">D15</div>
+                                <div class="quick-link moderate-risk" data-concentration="20">D20</div>
+                                <div class="quick-link high-risk" data-concentration="25">D25</div>
+                                <div class="quick-link high-risk" data-concentration="30">D30</div>
+                                <div class="quick-link high-risk" data-concentration="40">D40</div>
+                                <div class="quick-link high-risk" data-concentration="50">D50</div>
+                                <div class="quick-link high-risk" data-concentration="70">D70</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بخش مانیتورینگ و اصلاح -->
+                    <div class="gir-section">
+                        <h4 class="section-title">📊 مانیتورینگ و اصلاح دوز</h4>
+                        <div class="input-group">
+                            <label for="gir-current-bg">قند خون فعلی (mg/dL):</label>
+                            <input type="number" id="gir-current-bg" placeholder="مثال: ۸۵">
+                        </div>
+                        <div class="input-group">
+                            <label for="gir-current-rate">سرعت انفوزیون فعلی (ml/hr):</label>
+                            <input type="number" id="gir-current-rate" placeholder="مثال: ۱۵">
+                        </div>
+                        <div class="input-group">
+                            <label for="gir-trend">روند قند خون:</label>
+                            <select id="gir-trend">
+                                <option value="stable">پایدار</option>
+                                <option value="rising">در حال افزایش</option>
+                                <option value="falling">در حال کاهش</option>
+                                <option value="fluctuating">نوسانی</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- دکمه محاسبه -->
+                    <button id="calculateGirBtn" class="calculate-btn">
+                        <i class="fas fa-calculator"></i> محاسبه پیشرفته GIR
+                    </button>
+
+                    <!-- نتایج و هشدارها -->
+                    <div class="gir-results-container">
+                        <div id="gir-warning" class="warning-message" style="display: none;"></div>
+                        <div id="gir-safety-alert" class="safety-alert" style="display: none;"></div>
+                        <div id="gir-result" class="result-container" style="display: none;"></div>
+                        
+                        <!-- بخش محاسبات سریع -->
+                        <div id="gir-quick-calculations" class="quick-calculations" style="display: none;">
+                            <h4>📈 محاسبات سریع بر اساس GIRهای رایج</h4>
+                            <div id="gir-quick-results"></div>
+                        </div>
+                    </div>
+
+                    <button class="close-btn">بستن</button>
+                </div>
+            </div>
+        </div>
+        <div class="ad-container" id="adSection">
+            <div class="ad-box"><p>آموزش اورژانس و مراقبت‌های ویژه با دکتر امیر سالاری</p><a href="https://www.aparat.com/amir.salari2136" target="_blank"><button class="ad-btn"><i class="fas fa-film"></i> مشاهده ویدیوها</button></a></div>
+            <div class="ad-box"><p>دانلود محصولات آموزشی (اسلاید، پوستر، کتاب، پادکست)</p><a href="https://amirsalari.ir/product-category/educationalproductsdownload/" target="_blank"><button class="ad-btn"><i class="fas fa-book-open"></i> دانلود محصولات</button></a></div>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <div class="footer-supervisor"><strong>Supervised by:</strong> Dr. Amir Salari<br>Emergency & Critical Care Instructor, Tehran University of Medical Sciences</div>
+                <div class="footer-designer">Designed and coded by: Tavakol Piri<br>Medical Ward Nurse, Imam Khomeini Hospital Complex</div>
+                <div id="datetime" style="margin-bottom: 15px; font-size: 10px;"></div>
+                
+                <label class="theme-toggle" for="theme-toggle-checkbox" title="تغییر حالت نمایش">
+                    <input type="checkbox" id="theme-toggle-checkbox">
+                    <div class="slider">
+                        <div class="icons">
+                            <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.591 1.591a.75.75 0 11-1.06-1.06l1.591-1.591a.75.75 0 011.06 0zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5h2.25a.75.75 0 01.75.75zM17.836 17.836a.75.75 0 01-1.06 0l-1.591-1.591a.75.75 0 111.06-1.06l1.591 1.591a.75.75 0 010 1.06zM12 21.75a.75.75 0 01-.75-.75v-2.25a.75.75 0 011.5 0v2.25a.75.75 0 01-.75.75zM5.106 17.836a.75.75 0 010-1.06l1.591-1.591a.75.75 0 011.06 1.06l-1.591 1.591a.75.75 0 01-1.06 0zM2.25 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM6.106 6.106a.75.75 0 011.06 0l1.591 1.591a.75.75 0 11-1.06 1.06L6.106 7.167a.75.75 0 010-1.06z"></path></svg>
+                            <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-3.51 1.713-6.636 4.398-8.482a.75.75 0 01.818.162z" clip-rule="evenodd"></path></svg>
+                        </div>
+                    </div>
+                </label>
+                <div class="copyright">© All rights reserved for MedMate - 2025</div>
+            </div>
+        </footer>
+    </div>
+    <div id="install-guide-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-modal-btn" class="modal-close-btn">&times;</button>
+            <h2>راهنمای نصب برنامه</h2>
+            <p>برای دسترسی راحت‌تر و آفلاین، برنامه را به صفحه اصلی دستگاه خود اضافه کنید.</p>
+            <div class="modal-tabs">
+                <button class="modal-tab-btn active" data-tab="android"><i class="fab fa-android"></i> اندروید</button>
+                <button class="modal-tab-btn" data-tab="ios"><i class="fab fa-apple"></i> آیفون (iOS)</button>
+                <button class="modal-tab-btn" data-tab="windows"><i class="fab fa-windows"></i> ویندوز</button>
+            </div>
+            <div class="modal-tab-content active" id="tab-android">
+                <h4>دانلود از کافه بازار برای اندروید</h4>
+                <p>برای نصب مستقیم برنامه از کافه بازار، دکمه زیر را لمس کرده یا QR Code را با گوشی خود اسکن کنید.</p>
+                <div class="android-install-container">
+                    <div class="qr-code-container">
+                        <img src="/image/bazaar-qr-code.jpg" alt="QR Code for Cafe Bazaar Download">
+                    </div>
+                    <a href="http://cafebazaar.ir/app/?id=ir.medmate.app&ref=share" target="_blank" class="bazaar-download-btn">
+                        <i class="fas fa-download"></i>
+                        <span>دانلود مستقیم از کافه بازار</span>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-tab-content" id="tab-ios">
+                <h4>نصب در آیفون و آیپد (با مرورگر Safari or chrome)</h4>
+                <ol>
+                    <li><strong>مهم:</strong> این مراحل فقط در مرورگر <strong>Safari or chrome </strong> کار می‌کند.</li>
+                    <li>در نوار پایین صفحه، روی دکمه <strong>Share</strong> (آیکون <i class="fas fa-share-square"></i>) بزنید.</li>
+                    <li>در منوی باز شده، به پایین اسکرول کنید و گزینه <strong>"Add to Home Screen"</strong> را انتخاب کنید.</li>
+                    <li>در صفحه بعد، روی <strong>"Add"</strong> در گوشه بالا سمت راست بزنید.</li>
+                </ol>
+                <img src="/image/help/ios.webp" alt="راهنمای نصب آیفون" class="guide-image"/>
+            </div>
+            <div class="modal-tab-content" id="tab-windows">
+                <h4>نصب در ویندوز (با مرورگر Chrome یا Edge)</h4>
+                <ol>
+                    <li>در سمت راست نوار آدرس مرورگر، به دنبال آیکون نصب (<i class="fas fa-desktop"></i> با یک فلش) بگردید و روی آن کلیک کنید.</li>
+                    <li>در پنجره باز شده، روی دکمه <strong>"Install"</strong> کلیک کنید.</li>
+                </ol>
+                <img src="/image/help/windoes.webp" alt="راهنمای نصب ویندوز" class="guide-image"/>
+            </div>
+        </div>
+    </div>
+    <div id="print-sheet-modal" class="modal-overlay">
+        <div class="modal-content large">
+            <button id="closePrintSheetModalBtn" class="modal-close-btn">&times;</button>
+            <h2 class="sidebar-title">مدیریت و چاپ برگه A4</h2>
+            <div class="print-sheet-layout">
+                <div class="a4-sheet-preview" id="a4SheetPreview"></div>
+                <div class="print-sheet-sidebar">
+                    <h4 class="sidebar-title">لیبل آماده برای جایگذاری</h4>
+                    <div class="waiting-labels-list" id="waitingLabelsList">
+                        <p class="no-waiting-labels">لیبلی برای جایگذاری ثبت نشده است.</p>
+                    </div>
+                    <div class="print-sheet-actions">
+                        <button id="printA4SheetBtn" class="action-btn"><i class="fas fa-print"></i> چاپ این برگه</button>
+                        <button id="clearA4SheetBtn" class="action-btn danger"><i class="fas fa-trash-alt"></i> پاک کردن کل برگه</button>
+                    </div>
+                    <p class="note">روی خانه های خالی کلیک کنید تا اولین لیبل از لیست انتظار، جایگذاری شود.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="promo-overlay">
+        <div id="promo-modal">
+            <button id="close-promo"><i class="fas fa-times"></i></button>
+            <a href="" target="_blank">
+                <img src="" alt="پوستر تبلیغاتی">
+            </a>
+        </div>
+    </div>
+    <script src="/js/medmate.js"></script>
+</body>
+</html>
