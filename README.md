@@ -13,7 +13,7 @@ MedMate is a specialized web application for medical drug calculations and clini
 
 ## Access
 Available at:  
-🌐 [https://medmate.ir](https://medmate.ir) or (https://drug-c.vercel.app)
+🌐 [https://fifthidea.github.io/MedMate](https://fifthidea.github.io/medmate)
 
 ## Technologies
 - Frontend: HTML5, CSS3, JavaScript (ES6+)
@@ -39,7 +39,7 @@ Medical Ward Nurse  Imam Khomeini Hospital Complex
 📞 +98 990 541 5680
 
 ## How to Use
-1. Visit [medmate.ir](https://medmate.ir)(https://drug-c.vercel.app)
+1. Visit [fifthidea.github.io/MedMate](https://fifthidea.github.io/MedMate)
 2. Select your desired calculation tool
 3. Enter patient parameters
 4. Results will display automatically
