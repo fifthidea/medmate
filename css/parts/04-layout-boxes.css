@@ -1,0 +1,154 @@
+/* General Body and Container Styles */
+body { font-family: 'Yekan', 'Poppins', Tahoma, Geneva, Verdana, sans-serif; direction: rtl; text-align: right; background-color: #f4f7f9; margin: 0; padding: 0; color: #333; user-select: none; -webkit-user-select: none; -moz-user-select: none; transition: background-color 0.3s, color 0.3s;}
+/* حالت انگلیسی: کل صفحه چپ‌چین و LTR می‌شود (قرینه‌ی حالت فارسی) */
+body.lang-en { direction: ltr; text-align: left; }
+input, textarea, select, button { user-select: text; -webkit-user-select: text; -moz-user-select: text; }
+.container {
+    max-width: 500px;
+    margin: 15px auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.boxes-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; position: relative; }
+.box { background-color: #fff; border-radius: 16px; text-align: center; transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease, opacity 0.35s ease; box-shadow: 0 4px 10px rgba(44, 62, 80, 0.08), 0 1px 3px rgba(44, 62, 80, 0.06); border: 1px solid rgba(255, 255, 255, 0.6); position: relative; overflow: hidden; padding-bottom: 12px; min-height: 168px; display: flex; flex-direction: column; transform-origin: center; will-change: transform; }
+/* افکت نور ملایم بالای هر باکس برای حس عمق و مدرن (فقط دستگاه‌های دارای hover) */
+.box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+/* در حالت شب افکت نور خیلی ملایم‌تر تا چشم را نزند */
+body.dark-mode .box::after {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0));
+}
+@media (hover: hover) {
+    .box:not(.active):hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 22px rgba(44, 62, 80, 0.16), 0 3px 8px rgba(44, 62, 80, 0.08);
+    }
+}
+.box:not(.active):active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+/*
+=========================================================
+      START: FINAL STYLES FOR FULLSCREEN EFFECT
+=========================================================
+*/
+/* باکس باز‌شده: با top (که JS روی ارتفاع نوار بالا ست می‌کند) و bottom:0 کل ارتفاع
+   دیدرس را می‌گیرد. از height استفاده نمی‌کنیم تا با top غیرصفر، پایین باکس از صفحه
+   بیرون نزند و محتوا (تا دکمه بستن) کامل اسکرول شود. */
+.box.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1500;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    box-shadow: none;
+}
+.box.active::-webkit-scrollbar {
+    display: none;
+}
+/* پس‌زمینه‌ی کاملاً مات برای باکس باز‌شده تا محتوای پشت دیده نشود.
+   باکس هنگام باز شدن به body منتقل می‌شود (فرزند boxes-container نیست)، پس
+   selector مستقیم .box.active استفاده می‌شود و !important تا رنگ نیمه‌شفاف inline
+   که JS ست می‌کند را بازنویسی کند. */
+.box.active { background-color: #f7fafc !important; }
+/* ناحیه‌ی محتوای فرم که کل ارتفاع باقی‌مانده را پر می‌کند تا هیچ بخشی از پشت دیده نشود.
+   padding-bottom سخاوتمندانه تا آخرین المان (نتیجه) کامل و بالای نوار پایین مرورگر
+   موبایل دیده شود و اسکرول ناقص نماند. */
+.box.active .box-content {
+    flex-grow: 1;
+    min-height: 55vh;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+}
+/* اطمینان از اسکرول روان و لمسی در باکس باز‌شده (به‌ویژه WebView/iOS) */
+.box.active {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+body.fullscreen-active {
+    overflow: hidden;
+}
+.boxes-container.box-is-active .box {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95);
+}
+.box.active .box-header {
+    flex-grow: 0;
+    padding-bottom: 0;
+}
+/*
+=========================================================
+      END: FINAL STYLES FOR FULLSCREEN EFFECT
+=========================================================
+*/
+
+.box:nth-child(1) { background-color: rgba(187, 222, 251, 0.9); border-color: #90caf9; }
+.box:nth-child(2) { background-color: rgba(200, 230, 201, 0.9); border-color: #a5d6a7; }
+.box:nth-child(3) { background-color: rgba(178, 235, 242, 0.9); border-color: #80deea; }
+.box:nth-child(4) { background-color: rgba(225, 190, 231, 0.9); border-color: #ce93d8; }
+.box:nth-child(5) { background-color: rgba(255, 249, 196, 0.9); border-color: #fff59d; }
+.box:nth-child(6) { background-color: rgba(255, 224, 178, 0.9); border-color: #ffcc80; }
+.box[data-link] { cursor: pointer; }
+.box:nth-child(7) { background-color: rgba(185, 246, 202, 0.9); border-color: #69f0ae; }
+.box:nth-child(8) { background-color: rgba(197, 202, 233, 0.9); border-color: #9fa8da; }
+.box:nth-child(9) { background-color: rgba(178, 223, 219, 0.9); border-color: #80cbc4; }
+/* آیکون از بالای هدر با فاصله‌ی ثابت شروع می‌شود (نه وسط) تا با وجود عنوان‌های
+   یک‌خطی/دوخطی، همه‌ی دایره‌ها دقیقاً در یک راستا (هم‌ارتفاع) بمانند. */
+.box-header { padding: 16px 10px 10px; cursor: pointer; position: relative; flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 12px; }
+/* هاله‌ی دایره‌ای ملایم پشت آیکون برای کانون بصری و حس نیتیو.
+   نکته: هاله با radial-gradient رسم می‌شود (نه border-radius روی خود تصویر) تا
+   هیچ بخشی از آیکون توسط clip دایره بریده/پنهان نشود. object-fit: contain تضمین
+   می‌کند کل تصویر داخل کادر جا شود. */
+.custom-icon {
+    width: 70px;
+    height: 70px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    object-fit: contain;
+    overflow: visible;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* دایره‌ی پس‌زمینه به‌صورت گرادیان شعاعی؛ داخل دایره پر و بیرونش شفاف */
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.55) 0 68%, rgba(255, 255, 255, 0) 69%);
+    filter: drop-shadow(0 2px 5px rgba(44, 62, 80, 0.14));
+    /* padding کم و یکسان؛ چون دیگر clip نمی‌شود تصویر می‌تواند بزرگ بماند */
+    padding: 8px;
+    box-sizing: border-box;
+}
+/* آیکون باکس محاسبات دارویی (pomp.png) حاشیه داخلی بیشتری دارد؛ padding کمتر
+   تا هم‌اندازه با بقیه دیده شود (بدون scale تا از دایره بیرون نزند). */
+.box:nth-child(1) .custom-icon { padding: 6px; }
+
+@media (hover: hover) {
+    .box:not(.active):hover .custom-icon { transform: scale(1.06); filter: drop-shadow(0 4px 9px rgba(44, 62, 80, 0.22)); }
+}
+.promo-icon {
+width: 70px !important;
+height: 70px !important;
+padding: 1px !important;
+}
+.box-title { font-size: 13px; font-weight: 600; color: #2c3e50; margin-top: 0; line-height: 1.35; text-align: center; padding: 0 6px; }
+.box-content { display: none; padding: 10px 12px; border-top: 1px dashed #ccc; animation: fadeIn 0.3s ease; font-size: 12px; }
+.box.active .box-content { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+label { display: block; margin-bottom: 6px; font-weight: bold; color: #333; font-size: 12px; }

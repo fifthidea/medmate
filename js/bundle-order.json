@@ -1,0 +1,14 @@
+[
+  "translations.js",
+  "i18n.js",
+  "calc-core.js",
+  "drug-main.js",
+  "percentage-calc.js",
+  "fluid-drip.js",
+  "microset-drip.js",
+  "concentration-replace.js",
+  "meq-mg-calc.js",
+  "pediatric-calc.js",
+  "tarkib.js",
+  "medmate.js"
+]

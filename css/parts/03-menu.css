@@ -1,0 +1,283 @@
+/* --- Menu Wrapper & Overlay (Minimal Design) --- */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+body.menu-is-open .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0; /* برای سایت راست‌چین */
+    width: 280px; /* عرض کمتر برای ظاهر جمع و جور */
+    max-width: 80%;
+    height: 100%;
+    z-index: 1999;
+    background-color: #f4f7f9;
+    box-shadow: -3px 0 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.3s ease-in-out, visibility 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark-mode .menu-wrapper {
+    background-color: var(--bg-secondary);
+}
+
+body.menu-is-open .menu-wrapper {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+/* --- Menu Content (Minimal Design) --- */
+.menu-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* مخفی کردن اسکرول‌بار */
+.menu-content::-webkit-scrollbar { display: none; }
+.menu-content { -ms-overflow-style: none; scrollbar-width: none; }
+
+
+.menu-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 15px;
+}
+.menu-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.menu-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+body.dark-mode .menu-title {
+    color: var(--text-primary);
+}
+
+.menu-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #34495e;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+body.dark-mode .menu-link {
+    color: var(--text-secondary);
+}
+
+.menu-link:hover {
+    background-color: #e9eef2;
+    color: #2c3e50;
+}
+body.dark-mode .menu-link:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.menu-link i {
+    font-size: 18px;
+    width: 20px; /* For alignment */
+    text-align: center;
+    color: #7f8c8d;
+    transition: color 0.2s;
+}
+body.dark-mode .menu-link i {
+    color: var(--text-secondary);
+}
+/* آیکون تصویری (PNG) گزینه‌های منو — هم‌اندازه و هم‌تراز با آیکون‌های فونت */
+.menu-link-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+.menu-link:hover i {
+    color: #3498db;
+}
+
+.menu-divider {
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    margin: 15px 0;
+}
+body.dark-mode .menu-divider {
+    border-top-color: var(--border-color);
+}
+
+/* --- Menu Footer --- */
+.menu-footer {
+    margin-top: auto; /* Pushes footer to the bottom */
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+body.dark-mode .menu-footer {
+    border-top-color: var(--border-color);
+}
+
+.contact-section {
+    font-size: 13px;
+    width: 100%;
+}
+.contact-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #7f8c8d;
+    margin: 0 0 15px 0;
+}
+body.dark-mode .contact-title {
+    color: var(--text-secondary);
+}
+
+.contact-person {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+.contact-person:last-child {
+    margin-bottom: 0;
+}
+body.dark-mode .contact-person {
+    color: var(--text-secondary);
+}
+.contact-person span {
+    font-weight: 500;
+}
+.contact-links a {
+    color: #7f8c8d;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0 5px;
+    transition: color 0.2s;
+}
+body.dark-mode .contact-links a {
+    color: var(--text-secondary);
+}
+.contact-links a:hover {
+    color: #3498db;
+}
+
+.menu-footer .copyright {
+    text-align: center;
+    font-size: 12px;
+    color: #95a5a6;
+}
+body.dark-mode .menu-footer .copyright {
+    color: var(--text-secondary);
+}
+
+
+/* --- کنترل‌های منو: تم شب/روز (بالا) و تغییر زبان (پایین‌تر)، زیر هم --- */
+.menu-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+/* دکمه‌ی تغییر زبان به شکل toggle (مثل حالت شب): EN چپ، FA راست، با knob لغزنده */
+.lang-switch {
+    position: relative;
+    flex: 0 0 auto;
+    width: 72px;
+    height: 26px;
+    padding: 0;
+    border: none;
+    border-radius: 26px;
+    background: #cfd8e3;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: background-color 0.4s ease;
+    overflow: hidden;
+    font-family: 'Yekan', 'Poppins', sans-serif;
+}
+body.dark-mode .lang-switch { background: var(--bg-tertiary); }
+
+/* دو برچسب EN (چپ) و FA (راست) */
+.lang-switch .lang-opt {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    z-index: 1;
+    pointer-events: none;
+    transition: color 0.3s ease;
+    box-sizing: border-box;
+}
+.lang-switch .lang-opt-en { left: 0; }
+.lang-switch .lang-opt-fa { right: 0; }
+
+/* knob لغزنده روی نیمه‌ی فعال */
+.lang-switch .lang-knob {
+    position: absolute;
+    top: 3px;
+    width: calc(50% - 3px);
+    height: calc(100% - 6px);
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    z-index: 0;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* حالت پیش‌فرض (فارسی فعال): knob سمت راست، FA پررنگ */
+.lang-switch .lang-knob { transform: translateX(0); left: 3px; }
+.lang-switch .lang-opt-fa { color: #2c3e50; }
+.lang-switch .lang-opt-en { color: #8a97a6; }
+/* در فارسی knob باید روی FA (راست) باشد */
+body:not(.lang-en) .lang-switch .lang-knob { transform: translateX(calc(100% + 0px)); }
+
+/* حالت انگلیسی فعال: knob سمت چپ (EN)، EN پررنگ */
+body.lang-en .lang-switch .lang-knob { transform: translateX(0); }
+body.lang-en .lang-switch .lang-opt-en { color: #2c3e50; }
+body.lang-en .lang-switch .lang-opt-fa { color: #8a97a6; }
+body.dark-mode .lang-switch .lang-knob { background: var(--accent-primary); }
+body.dark-mode.lang-en .lang-switch .lang-opt-en,
+body.dark-mode:not(.lang-en) .lang-switch .lang-opt-fa { color: #ffffff; }

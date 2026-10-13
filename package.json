@@ -1,0 +1,11 @@
+{
+  "name": "medmate",
+  "version": "1.0.0",
+  "description": "MedMate - ابزار محاسبات دارویی، پزشکی و پرستاری",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "build": "node build.js"
+  },
+  "license": "MIT"
+}

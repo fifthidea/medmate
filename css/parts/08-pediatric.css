@@ -1,0 +1,616 @@
+.calculator-tabs {
+    background: rgba(185, 246, 202, 0.95) !important;
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+}
+body.dark-mode .calculator-tabs {
+    background: var(--bg-primary) !important;
+}
+
+.tab-nav {
+    background: rgba(185, 246, 202, 0.9) !important;
+    padding: 0;
+    position: relative;
+    border-bottom: 1px solid rgba(39, 174, 96, 0.3);
+}
+body.dark-mode .tab-nav {
+    background: var(--bg-primary) !important;
+    border-bottom-color: var(--border-color);
+}
+
+.tab-scroll {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    background: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    padding: 0;
+}
+body.dark-mode .tab-scroll {
+    background: var(--bg-primary) !important;
+}
+
+.tab-group {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(39, 174, 96, 0.3);
+    background: rgba(185, 246, 202, 0.8);
+}
+body.dark-mode .tab-group {
+    background: var(--bg-primary) !important;
+    border-right-color: var(--border-color) !important;
+}
+
+.tab-group:last-child {
+    border-right: none;
+}
+
+.group-label {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 6px 4px;
+    text-align: center;
+    border-bottom: 1px solid rgba(39, 174, 96, 0.3);
+    font-family: 'Yekan', sans-serif;
+}
+body.dark-mode .group-label {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border-bottom-color: var(--border-color) !important;
+}
+
+.tab-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 4px;
+    border: none;
+    background: rgba(185, 246, 202, 0.7);
+    color: #2c3e50;
+    font-size: 9px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 60px;
+    justify-content: center;
+    border-bottom: 1px solid rgba(39, 174, 96, 0.2);
+    flex: 1;
+}
+body.dark-mode .tab-btn {
+    background: var(--bg-primary) !important;
+    color: var(--text-secondary) !important;
+    border-bottom-color: var(--border-color) !important;
+}
+
+.tab-btn:last-child {
+    border-bottom: none;
+}
+
+.tab-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #2196F3;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.tab-btn.active {
+    color: #2196F3;
+    background: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+}
+body.dark-mode .tab-btn.active {
+    background: var(--bg-secondary) !important;
+    color: var(--accent-primary) !important;
+}
+
+.tab-btn.active::before {
+    transform: scaleX(1);
+}
+
+.tab-btn:hover:not(.active) {
+    color: #495057;
+    background: rgba(255, 255, 255, 0.8);
+}
+body.dark-mode .tab-btn:hover:not(.active) {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+.tab-btn i {
+    font-size: 14px;
+    margin-bottom: 2px;
+    transition: all 0.3s ease;
+    color: inherit;
+}
+
+.tab-btn.active i {
+    transform: scale(1.1);
+    color: #2196F3;
+}
+
+.tab-btn span {
+    line-height: 1.2;
+    text-align: center;
+    font-size: 8px;
+}
+
+/* Tab Contents */
+.tab-contents {
+    padding: 20px;
+    background: rgba(185, 246, 202, 0.92) !important;
+    min-height: 350px;
+}
+body.dark-mode .tab-contents {
+    background: var(--bg-secondary) !important;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+/* Calculation Cards */
+.calc-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(39, 174, 96, 0.3);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+body.dark-mode .calc-card {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-color);
+}
+
+.calc-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #27ae60;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+body.dark-mode .calc-card::before {
+    background: var(--accent-primary);
+}
+
+.calc-card:hover {
+    border-color: rgba(39, 174, 96, 0.6);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.98) !important;
+}
+body.dark-mode .calc-card:hover {
+    background: var(--bg-secondary) !important;
+    border-color: var(--accent-primary);
+}
+
+.calc-card.critical {
+    border-left: 3px solid #e74c3c;
+}
+
+.calc-card.critical::before {
+    background: #e74c3c;
+}
+
+.calc-card .card-header,
+.calc-card.critical .card-header {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+body.dark-mode .calc-card .card-header,
+body.dark-mode .calc-card.critical .card-header {
+    background: transparent !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+.calc-card.critical .card-header {
+    border-bottom: 1px solid rgba(231, 76, 60, 0.2) !important;
+}
+
+
+.card-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-header i {
+    color: #27ae60;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.calc-card.critical .card-header i {
+    color: #e74c3c;
+}
+
+.card-header h4 {
+    color: #2c3e50;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    flex: 1;
+}
+body.dark-mode .card-header h4 {
+    color: var(--text-primary);
+}
+
+.card-body {
+    padding: 16px;
+    background: transparent;
+}
+
+.calc-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(248, 249, 250, 0.5);
+    transition: all 0.2s ease;
+}
+body.dark-mode .calc-result {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.calc-result:last-child {
+    border-bottom: none;
+}
+
+.calc-result:hover {
+    background: rgba(248, 255, 249, 0.5);
+    border-radius: 4px;
+    padding: 10px 8px;
+}
+body.dark-mode .calc-result:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* .result-label / .result-value: مقادیر مؤثر نهایی (پیش‌تر از بخش GIR که حذف شد
+   می‌آمدند و این‌ها را override می‌کردند؛ اکنون مستقیماً اینجا تعریف شده‌اند تا
+   ظاهر بخش پدیاتریک بدون تغییر بماند). */
+.result-label {
+    font-weight: 500;
+    color: #555;
+    font-size: 13px;
+}
+body.dark-mode .result-label {
+    color: var(--text-secondary);
+}
+
+.result-value {
+    font-weight: bold;
+    font-size: 13px;
+    color: #2c3e50;
+}
+body.dark-mode .result-value {
+    color: var(--text-primary);
+}
+
+.calc-card.critical .result-value {
+    color: #c0392b;
+    background: rgba(253, 237, 236, 0.7);
+    border-color: rgba(245, 183, 177, 0.5);
+}
+body.dark-mode .calc-card.critical .result-value {
+    color: #ff6b6b;
+    background: #3c1c1c;
+    border-color: #842029;
+}
+
+
+.calc-formula {
+    color: #7f8c8d;
+    font-size: 10px;
+    font-style: italic;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(213, 245, 227, 0.5);
+    text-align: center;
+}
+body.dark-mode .calc-formula {
+    color: var(--text-secondary);
+    border-top-color: var(--border-color);
+}
+
+/* Drug Fields */
+.drug-field {
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(39, 174, 96, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+body.dark-mode .drug-field {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-color);
+}
+
+.drug-field:hover {
+    border-color: rgba(39, 174, 96, 0.4);
+    background: rgba(255, 255, 255, 0.9);
+}
+body.dark-mode .drug-field:hover {
+    background: var(--bg-secondary) !important;
+    border-color: var(--accent-primary);
+}
+
+.drug-name {
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 13px;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed rgba(39, 174, 96, 0.3);
+    /* --- اصلاحیه برای حل مشکل تداخل RTL/LTR --- */
+        direction: ltr;     /* جهت را به چپ به راست تغییر می‌دهد */
+        text-align: center;   /* متن را به سمت چپ می‌چسباند */
+        /* ----------------------------------------- */
+}
+body.dark-mode .drug-name {
+    color: var(--text-primary) !important;
+    border-bottom-color: var(--border-color);
+}
+
+.drug-info {
+    color: #7f8c8d;
+    font-size: 11px;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+body.dark-mode .drug-info {
+    color: var(--text-secondary);
+}
+
+.value-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.value-label {
+    color: #5d6d7e;
+    font-size: 12px;
+    font-weight: 500;
+    flex: 1;
+}
+body.dark-mode .value-label {
+    color: var(--text-secondary) !important;
+}
+
+.value-dose {
+    color: #2196F3;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    direction: ltr;
+    font-family: 'Courier New', monospace;
+    background: rgba(227, 242, 253, 0.7);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(187, 222, 251, 0.5);
+    min-width: 100px;
+    text-align: center;
+}
+body.dark-mode .value-dose {
+    color: #64B5F6;
+    background: #1a2a3a;
+    border-color: #283593;
+}
+
+.value-prep {
+    color: #4CAF50;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    direction: ltr;
+    font-family: 'Courier New', monospace;
+    background: rgba(232, 245, 232, 0.7);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(200, 230, 201, 0.5);
+}
+body.dark-mode .value-prep {
+    color: #81C784;
+    background: #1b5e20;
+    border-color: #2e7d32;
+}
+
+.value-max {
+    color: #FF9800;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    direction: ltr;
+    font-family: 'Courier New', monospace;
+    background: rgba(255, 243, 224, 0.7);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 204, 128, 0.5);
+}
+body.dark-mode .value-max {
+    color: #FFB74D;
+    background: #382c05;
+    border-color: #FF9800;
+}
+
+/* دکمه بستن مرتب‌تر */
+.pediatric-box .close-btn {
+    margin: 20px 15px 15px 15px !important;
+    padding: 12px !important;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    transition: all 0.3s ease !important;
+    width: calc(100% - 30px) !important;
+    cursor: pointer;
+}
+
+.pediatric-box .close-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4) !important;
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%) !important;
+}
+
+.pediatric-box .close-btn:active {
+    transform: translateY(0) !important;
+}
+
+/* ==================== RESPONSIVE FIXES FOR PEDIATRIC TABS ==================== */
+
+@media (max-width: 768px) {
+    .tab-scroll {
+        grid-template-columns: repeat(4, 1fr);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .tab-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab-group {
+        min-width: 80px;
+        flex-shrink: 0;
+        border-right: 1px solid rgba(39, 174, 96, 0.3);
+        border-bottom: none;
+    }
+    body.dark-mode .tab-group {
+        border-right-color: var(--border-color) !important;
+    }
+
+    .tab-group:nth-child(even) {
+        border-right: 1px solid rgba(39, 174, 96, 0.3);
+    }
+    body.dark-mode .tab-group:nth-child(even) {
+        border-right-color: var(--border-color) !important;
+    }
+
+
+    .tab-group:last-child {
+        border-right: 1px solid rgba(39, 174, 96, 0.3);
+    }
+    body.dark-mode .tab-group:last-child {
+        border-right-color: var(--border-color) !important;
+    }
+
+    .tab-btn {
+        min-height: 55px;
+        padding: 8px 3px;
+    }
+
+    .tab-btn i {
+        font-size: 12px;
+    }
+
+    .tab-btn span {
+        font-size: 7px;
+        line-height: 1.1;
+    }
+
+    .group-label {
+        font-size: 9px;
+        padding: 5px 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tab-scroll {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+    }
+
+    .tab-group {
+        min-width: 70px;
+        border-right: 1px solid rgba(39, 174, 96, 0.3) !important;
+        border-bottom: none !important;
+    }
+    body.dark-mode .tab-group {
+        border-right-color: var(--border-color) !important;
+        border-bottom: none !important;
+    }
+
+
+    .tab-group:last-child {
+        border-right: 1px solid rgba(39, 174, 96, 0.3) !important;
+    }
+    body.dark-mode .tab-group:last-child {
+        border-right-color: var(--border-color) !important;
+    }
+
+
+    .tab-btn {
+        min-height: 50px;
+        padding: 6px 2px;
+    }
+
+    .tab-btn i {
+        font-size: 11px;
+    }
+
+    .tab-btn span {
+        font-size: 6.5px;
+    }
+
+    .group-label {
+        font-size: 8px;
+        padding: 4px 1px;
+    }
+
+    .tab-contents {
+        padding: 15px;
+        min-height: 300px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+/* استایل برای زیرنویس‌های دفیبریلاسیون و کاردیوورژن */
+.calc-result .dose-description {
+    font-size: 9px;
+    color: #666;
+    margin-top: 1px;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.2;
+    padding: 0 2px;
+}
+
+body.dark-mode .calc-result .dose-description {
+    color: var(--text-secondary);
+}

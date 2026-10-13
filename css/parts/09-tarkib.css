@@ -1,0 +1,567 @@
+/* ==========================================
+   TARKIB (Mix & Fix Drugs) STYLES - FIXED
+   ========================================== */
+
+/* --- استایل دهی جدید و مدرن تب‌ها (شیک‌تر) --- */
+.tarkib-box .tabs {
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.05); /* تب‌ها هم کمی شفاف شدند */
+    padding: 5px;
+    border-radius: 12px;
+    border-bottom: none !important;
+    margin-bottom: 20px !important;
+}
+body.dark-mode .tarkib-box .tabs { background: var(--bg-tertiary); }
+
+.tarkib-box .tarkib-tab-link {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 0;
+    font-family: 'Yekan', sans-serif;
+    outline: none;
+}
+.tarkib-box .tarkib-tab-link:hover {
+    color: #000000;
+}
+.tarkib-box .tarkib-tab-link.active {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+body.dark-mode .tarkib-box .tarkib-tab-link { color: var(--text-secondary); }
+body.dark-mode .tarkib-box .tarkib-tab-link.active {
+    background: var(--bg-secondary);
+    color: var(--accent-primary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.tarkib-tab-content { animation: fadeIn 0.5s; }
+
+.warning-box { background-color: #fff3f3; border-right: 4px solid #e74c3c; color: #c0392b; padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 15px; line-height: 1.6; }
+.danger-box { background-color: #fce4e4; border: 2px solid #e74c3c; color: #c0392b; padding: 12px; border-radius: 8px; font-size: 12px; margin-bottom: 15px; line-height: 1.7; font-weight: bold; }
+
+.section-box { background-color: #fafbfc; border: 1px solid #e1e4e8; border-radius: 8px; padding: 12px; margin-bottom: 15px; }
+.highlight-section { border-color: #3498db; background-color: #ebf5fb; }
+.section-box h3 { margin-top: 0; font-size: 14px; color: #34495e; border-bottom: 1px solid #e1e4e8; padding-bottom: 8px; margin-bottom: 12px; }
+.highlight-section h3 { color: #2980b9; border-bottom-color: #a9cce3; }
+.ampoule-box { background-color: #f1f5f9; padding: 10px; border-radius: 8px; margin-bottom: 10px; border: 1px dashed #cbd5e1; }
+.highlight-section .ampoule-box { background-color: #ffffff; }
+.ampoule-box label { font-size: 11px; color: #475569; font-weight: bold; margin-bottom: 8px; display: block;}
+
+.trk-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; width: 100%; }
+.trk-col-100 { flex: 1; min-width: 0; }
+.trk-col-50 { flex: 1; min-width: 0; }
+.trk-row input, .trk-row select { margin-bottom: 0 !important; width: 100%; box-sizing: border-box; }
+
+/* ==========================================
+   اصلاح طول فیلدهای آمپول (کوچک‌تر و مرتب‌تر)
+   ========================================== */
+.trk-row-ampoule {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+.trk-row-ampoule input,
+.trk-row-ampoule select {
+    margin-bottom: 0 !important;
+    box-sizing: border-box;
+    height: 34px;
+    padding: 4px 6px;
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+/* فیلد مقدار (عدد) - نصف عرض قبلی */
+.trk-amount {
+    flex: 0 0 28%;
+    min-width: 60px;
+}
+
+/* ==========================================
+   فیلد واحد - کاملاً در مرکز
+   ========================================== */
+.trk-unit {
+    flex: 0 0 18%;
+    min-width: 45px;
+    text-align: center !important;
+    text-align-last: center !important;
+    padding: 4px 2px !important;
+    background-position: left 0.4rem center !important;
+    background-size: 0.8em;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* حذف padding اضافی که باعث عدم تعادل می‌شد */
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    /* اطمینان از center بودن متن در همه مرورگرها */
+    text-indent: 0 !important;
+}
+
+/* برای مرورگرهای WebKit (Chrome, Safari, Edge) */
+.trk-unit::-webkit-list-box {
+    text-align: center !important;
+}
+
+/* برای فایرفاکس */
+.trk-unit:-moz-listbox {
+    text-align: center !important;
+}
+
+/* فیلد حجم - نصف عرض قبلی */
+.trk-vol {
+    flex: 0 0 28%;
+    min-width: 55px;
+}
+
+.inline-text {
+    flex-shrink: 0;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: bold;
+    padding: 0 2px;
+}
+
+.locked-unit { background-color: #ecf0f1; border: 1px solid #bdc3c7; padding: 8px 10px; border-radius: 8px; color: #7f8c8d; font-size: 12px; font-weight: bold; text-align: center; cursor: not-allowed; width: 100%; box-sizing: border-box; margin-bottom: 0;}
+
+.btn-danger { background-color: #e67e22 !important; }
+.btn-danger:hover { background-color: #d35400 !important; }
+
+
+/*===============================================*/
+/* استایل‌های داخلی باکس نتیجه ترکیبی */
+/*===============================================*/
+.tarkib-result-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #ccc; }
+.tarkib-highlight-item { background-color: #ffffff; padding: 8px; border-radius: 6px; border: 1px solid #eee; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-bottom: none; }
+.tarkib-result-item span { color: #2c3e50; font-size: 13px; font-weight: 600;}
+.primary-val { color: #2c3e50; font-size: 14px; direction: ltr; display: block; text-align: end; font-weight: bold;}
+.cc-val { color: #e67e22; font-size: 13px; font-weight: bold; margin-top: 4px; text-align: end; direction: ltr; }
+
+.primary-val-light { color: #2c3e50; font-size: 16px; direction: ltr; font-weight: bold;}
+.action-badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 12px; margin-bottom: 12px; }
+.badge-increase { background-color: #e74c3c; color: white; }
+.badge-decrease { background-color: #3498db; color: white; }
+.instruction-item { flex-direction: column; align-items: flex-start; }
+.instruction-val { margin-top: 8px; font-size: 13px; color: #2c3e50; line-height: 1.6; background-color: #ffffff; padding: 12px; border-radius: 6px; border: 1px solid #eee; border-right: 4px solid #f1c40f; width: 100%; box-sizing: border-box; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+
+/* Dark Mode Integration */
+body.dark-mode .section-box { background-color: var(--bg-secondary); border-color: var(--border-color); }
+body.dark-mode .highlight-section { border-color: var(--accent-primary); background-color: rgba(52, 152, 219, 0.05); }
+body.dark-mode .section-box h3 { color: var(--text-primary); border-bottom-color: var(--border-color); }
+body.dark-mode .highlight-section h3 { color: var(--accent-primary); border-bottom-color: var(--accent-primary); }
+body.dark-mode .ampoule-box { background-color: var(--bg-tertiary); border-color: var(--border-color); }
+body.dark-mode .ampoule-box label, body.dark-mode .inline-text { color: var(--text-secondary); }
+body.dark-mode .locked-unit { background-color: var(--bg-tertiary); border-color: var(--border-color); color: var(--text-secondary); }
+body.dark-mode .warning-box { background-color: #382c05; border-color: #856404; color: #ffd351; }
+body.dark-mode .danger-box { background-color: #3c1c1c; border-color: #842029; color: #ea868f; }
+
+/* آپدیت Dark Mode برای عناصر داخلی نتیجه ترکیبی */
+body.dark-mode #resultBoxNew h3, body.dark-mode #resultBoxFix h3,
+body.dark-mode .tarkib-result-item span, body.dark-mode .primary-val { color: var(--text-primary) !important; }
+body.dark-mode .tarkib-highlight-item { background-color: var(--bg-tertiary) !important; border-color: var(--bg-secondary) !important; }
+body.dark-mode .instruction-val { background-color: var(--bg-tertiary) !important; border: 1px solid var(--bg-secondary) !important; border-right: 4px solid #f1c40f !important; color: var(--text-primary) !important; }
+body.dark-mode #resultBoxNew h3, body.dark-mode #resultBoxFix h3 { border-bottom-color: var(--bg-secondary) !important; }
+body.dark-mode .tarkib-result-item { border-bottom-color: var(--bg-secondary) !important; }
+body.dark-mode .primary-val-light { color: var(--accent-primary) !important; }
+
+
+/* اصلاح نهایی چیدمان اعداد و واحدهای انگلیسی در نتایج */
+.result span,
+.result strong,
+.result b {
+    unicode-bidi: embed;
+    display: inline-block;
+}
+
+/* =========================================================
+   اصلاح استایل قفل باکس‌ها (متن خوانا و قفل کوچک گوشه راست)
+========================================================= */
+.locked-box {
+    position: relative;
+    pointer-events: none; /* جلوگیری از کلیک روی فیلدهای زیرین */
+}
+
+.lock-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* افکت شیشه‌ای بسیار ملایم برای خوانایی کامل محتوای زیرین */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    z-index: 10;
+    pointer-events: auto; /* اجازه کلیک روی کل لایه برای انتقال به بازار */
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .lock-overlay {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.lock-overlay:hover {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+body.dark-mode .lock-overlay:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* قرار دادن قفل کوچک در گوشه پایین سمت راست و مماس با خط */
+.lock-icon-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;  /* سایز کوچکتر و جمع‌وجور */
+    height: 32px;
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+
+    /* انحنای هوشمندانه برای چسبیدن کامل به کنج پایین-راست باکس
+       (به ترتیب: بالا-چپ، بالا-راست، پایین-راست، پایین-چپ) */
+    border-radius: 16px 0 12px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -2px -2px 10px rgba(241, 196, 15, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.lock-overlay:hover .lock-icon-container {
+    transform: scale(1.1); /* افکت بزرگ شدن ملایم موقع هاور */
+}
+
+.lock-icon-container i {
+    font-size: 13px; /* سایز کوچکتر آیکون */
+    color: #fff;
+    margin-bottom: -3px !important; /* کمی پایین‌تر آوردن خود آیکون طبق درخواست شما */
+    margin-left: -3px; /* متمایل کردن به وسط با توجه به فرم کنج */
+}
+
+/* =========================================================
+   استایل‌های مُدال شیک پریمیوم (VIP)
+========================================================= */
+.chic-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.chic-modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.chic-modal-content {
+    background: #ffffff;
+    width: 85%;
+    max-width: 340px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+.chic-modal-overlay.show .chic-modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.chic-modal-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 8px 20px rgba(241, 196, 15, 0.4);
+    animation: pulseGlow 2s infinite;
+}
+
+.chic-modal-icon i {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.chic-modal-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-family: 'Yekan', sans-serif;
+}
+
+.chic-modal-text {
+    font-size: 14px;
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+    font-family: 'Yekan', sans-serif;
+}
+
+/* بخش لودینگ انتقال */
+.chic-modal-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.chic-modal-loader span {
+    font-size: 12px;
+    color: #34495e;
+    font-weight: 600;
+}
+
+.chic-spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(243, 156, 18, 0.3);
+    border-top: 3px solid #f39c12;
+    border-radius: 50%;
+    animation: chicSpin 1s linear infinite;
+}
+
+/* انیمیشن‌ها */
+@keyframes chicSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(241, 196, 15, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); }
+}
+
+/* سازگاری با حالت تاریک (Dark Mode) */
+body.dark-mode .chic-modal-content {
+    background: var(--bg-secondary);
+    border-color: rgba(241, 196, 15, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .chic-modal-title {
+    color: var(--text-primary);
+}
+
+body.dark-mode .chic-modal-text {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .chic-modal-loader {
+    background: var(--bg-tertiary);
+}
+
+body.dark-mode .chic-modal-loader span {
+    color: var(--text-primary);
+}
+
+
+/* =========================================================
+   مُدال خرید و فعال‌سازی نسخهٔ پرمیوم (تأیید قبل از پرداخت)
+========================================================= */
+.chic-modal-content.premium-purchase {
+    max-width: 340px;
+    padding: 20px 18px 18px;
+    text-align: center;
+}
+
+/* آیکون و عنوان فشرده‌تر در حالت خرید */
+.premium-purchase .chic-modal-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 10px;
+}
+
+.premium-purchase .chic-modal-icon i {
+    font-size: 24px;
+}
+
+.premium-purchase .chic-modal-title {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.premium-purchase .chic-modal-text {
+    font-size: 12.5px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+/* عنوان بخش ویژگی‌ها */
+.prem-features-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 8px;
+    font-family: 'Yekan', sans-serif;
+    text-align: start;
+}
+
+/* لیست ویژگی‌های نسخهٔ کامل — دو ستونه و فشرده */
+.prem-features-list {
+    list-style: none;
+    margin: 0 0 14px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 10px;
+    text-align: start;
+}
+
+.prem-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 11.5px;
+    color: #34495e;
+    font-family: 'Yekan', sans-serif;
+    line-height: 1.35;
+}
+
+.prem-features-list li.prem-feat-full {
+    grid-column: 1 / -1;
+}
+
+.prem-features-list li i {
+    color: #27ae60;
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+/* باکس هشدار خاموش‌کردن فیلترشکن */
+.prem-vpn-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(241, 196, 15, 0.12);
+    border: 1px solid rgba(243, 156, 18, 0.4);
+    border-radius: 10px;
+    padding: 9px 11px;
+    margin: 0 0 14px;
+    text-align: start;
+}
+
+.prem-vpn-warning i {
+    color: #f39c12;
+    font-size: 15px;
+    margin-top: 1px;
+    flex-shrink: 0;
+}
+
+.prem-vpn-warning span {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #8a6d3b;
+    font-family: 'Yekan', sans-serif;
+    font-weight: 600;
+}
+
+/* ناحیهٔ دکمه‌ها */
+.prem-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prem-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 11px 14px;
+    border: none;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Yekan', sans-serif;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.prem-btn:active {
+    transform: scale(0.98);
+}
+
+.prem-btn-buy {
+    background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(243, 156, 18, 0.35);
+}
+
+.prem-btn-buy i {
+    font-size: 14px;
+}
+
+.prem-btn-cancel {
+    background: transparent;
+    color: #7f8c8d;
+    border: 1px solid rgba(127, 140, 141, 0.35);
+}
+
+.prem-btn-cancel:hover {
+    background: rgba(127, 140, 141, 0.08);
+}
+
+/* سازگاری با حالت تاریک (Dark Mode) */
+body.dark-mode .prem-features-title {
+    color: var(--text-primary);
+}
+
+body.dark-mode .prem-features-list li {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .prem-vpn-warning {
+    background: rgba(241, 196, 15, 0.08);
+    border-color: rgba(243, 156, 18, 0.3);
+}
+
+body.dark-mode .prem-vpn-warning span {
+    color: #e0c56e;
+}
+
+body.dark-mode .prem-btn-cancel {
+    color: var(--text-secondary);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .prem-btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.06);
+}

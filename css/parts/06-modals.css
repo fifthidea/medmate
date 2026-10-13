@@ -1,0 +1,169 @@
+/* --- Video Player Modal Styles --- */
+.video-modal-content {
+    padding: 10px;
+    background: #000;
+    border: 1px solid #333;
+    max-width: 90%;
+    width: 800px;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.video-modal-content .modal-close-btn {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+.video-modal-content .modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* Styles for #conversionResult specific output */
+#conversionResult {
+    display: block;
+    text-align: right;
+    padding: 15px;
+    align-items: initial;
+    justify-content: initial;
+}
+
+#conversionResult p {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 500;
+    color: #34495e;
+}
+
+#conversionResult p:first-child {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#conversionResult p strong {
+    font-weight: bold;
+    color: #2980b9;
+    font-size: 1.1em;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+/* --- لیست سایر برنامه‌های پزشکی (مودال دانلود ابزارها) --- */
+.other-apps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+.other-app-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid var(--border-color, #e7e7e7);
+    border-radius: 12px;
+    background: var(--bg-tertiary, #f8f9fa);
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+@media (hover: hover) {
+    .other-app-card:hover { box-shadow: 0 4px 12px rgba(44, 62, 80, 0.12); transform: translateY(-2px); }
+}
+.other-app-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    object-fit: contain;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 4px;
+    box-sizing: border-box;
+}
+body.dark-mode .other-app-icon { background: rgba(255, 255, 255, 0.08); }
+.other-app-info {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: start;
+}
+/* override صریح text-align: center مودال، تا نام و توضیح با جهت زبان
+   هم‌راستا شوند (در انگلیسی چپ‌چین، در فارسی راست‌چین) و نقطه‌ی انتهای
+   جمله در جای درست قرار گیرد */
+.other-app-name,
+.other-app-desc {
+    text-align: start !important;
+}
+.other-app-name {
+    margin: 0 0 3px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary, #2c3e50);
+    font-family: 'Poppins', 'Yekan', sans-serif;
+}
+.other-app-desc {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-secondary, #6b7783);
+}
+.other-app-btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #27ae60 0%, #219150 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: filter 0.2s ease, transform 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+.other-app-btn:hover { filter: brightness(1.08); }
+.other-app-btn:active { transform: scale(0.96); }
+
+
+/* در حالت انگلیسی، مودال‌ها LTR و چپ‌چین می‌شوند (override حالت پیش‌فرض RTL) */
+body.lang-en .modal-content {
+    direction: ltr;
+    text-align: left;
+}
+/* اطمینان از چپ‌چین بودن نام و توضیح اپ در انگلیسی و راست‌چین در فارسی
+   (text-align: start خودکار با جهت هماهنگ می‌شود؛ dir را هم صریح می‌کنیم) */
+.other-app-card { direction: inherit; }
+.other-app-info { text-align: start; }

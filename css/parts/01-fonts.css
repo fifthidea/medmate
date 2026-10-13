@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Yekan';
+    /* --- اصلاحیه نهایی برای Android WebView --- */
+    src: url('file:///android_asset/fonts/Yekan.ttf') format('truetype');
+    /* ------------------------------------------- */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0600-06FF, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+}
+/* ================================================================ */
+/* کدهای نهایی و کامل برای منوی جدید و مدرن (مینیمال و شیک)
+/* ================================================================ */
+
+/* استایل بدنه صفحه وقتی منو باز است */
+body.menu-is-open {
+    overflow: hidden; /* جلوگیری از اسکرول خوردن محتوای اصلی */
+}

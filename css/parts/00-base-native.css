@@ -1,0 +1,91 @@
+/* ================================================================
+   00-base-native.css
+   بهینه‌سازی‌های پایه برای حس نیتیو و روان‌تر در WebView/موبایل.
+   این فایل اول از همه لود می‌شود و فقط رفتارهای امن اضافه می‌کند
+   (بدون تغییر ظاهر موجود).
+   ================================================================ */
+
+/* متغیرهای رنگ به‌صورت سراسری تعریف می‌شوند تا هر var(--...) که خارج از
+   حالت تاریک استفاده شود مقدار معتبر داشته باشد (fallback). حالت تاریک
+   این‌ها را در body.dark-mode بازنویسی می‌کند. */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f4f6f8;
+    --bg-tertiary: #e9edf1;
+    --border-color: #d9e0e6;
+    --text-primary: #2c3e50;
+    --text-secondary: #6b7783;
+    --accent-primary: #5288c1;
+    --accent-hover: #6499c4;
+    --danger-color: #d9534f;
+}
+
+/* رفتار اسکرول روان‌تر و جلوگیری از کشیده‌شدن (bounce) بیش از حد صفحه */
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+body {
+    overscroll-behavior-y: contain;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* حس نیتیو هنگام لمس: حذف هایلایت آبی/خاکستری پیش‌فرض روی عناصر تعاملی
+   و پاسخ سریع‌تر به لمس. */
+a,
+button,
+.box,
+.box-header,
+.custom-icon,
+.tab-btn,
+.tarkib-tab-link,
+.menu-link,
+input,
+select,
+label {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+button,
+.box-header,
+.custom-icon,
+.tab-btn,
+.tarkib-tab-link,
+.menu-toggle {
+    touch-action: manipulation; /* حذف تأخیر ۳۰۰ms و جلوگیری از دابل‌تپ زوم */
+}
+
+/* متن دکمه‌ها/عناوین قابل انتخاب نباشد تا حس اپ نیتیو بدهد (ورودی‌ها مستثنا) */
+button,
+.box-title,
+.tab-btn,
+.tarkib-tab-link,
+.menu-link,
+.menu-toggle {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* افکت‌های hover فقط روی دستگاه‌هایی که واقعاً hover دارند اعمال شوند
+   تا روی موبایل حالت «چسبیده» ایجاد نشود. */
+@media (hover: none) {
+    .box:hover,
+    .calc-card:hover,
+    .drug-field:hover {
+        transform: none;
+    }
+}
+
+/* احترام به تنظیم کاهش حرکت سیستم برای دسترس‌پذیری و روان‌تر شدن. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
