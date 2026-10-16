@@ -2786,7 +2786,7 @@ let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; });
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('https://raw.githubusercontent.com/fifthidea/medmate/refs/heads/main/sw.js').then(reg => {
+        navigator.serviceWorker.register('https://fifthidea.github.io/medmate/sw.js').then(reg => {
             reg.addEventListener('updatefound', () => {
                 const newWorker = reg.installing;
                 newWorker.addEventListener('statechange', () => {
